@@ -1,7 +1,11 @@
-#This is a sample Image
-FROM ubuntu
-MAINTAINER demousr@gmail.com
+#Getting base image from CentOS 7
+FROM centos
 
-RUN apt-get update
-RUN apt-get install –y nginx
-CMD [“echo”,”Image created”]
+MAINTAINER myself <mymail@mail.com>
+
+LABEL Remarks="This is a Dockerfile for CentOS System"
+
+#Update Software Repository
+RUN yum -y install wget
+RUN yum -y install epel-release
+RUN yum -y install nginx
